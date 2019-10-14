@@ -3,10 +3,29 @@
 
 #include "pch.h"
 #include <iostream>
+using namespace std;
+
+int gcd(int m, int n)
+{
+	if (m <= 0 || n <= 0)
+	{
+		return 0;
+	}
+	if (m % n == 0)
+	{
+		return n;
+	}
+	return gcd(n, m%n);
+}
 
 int main()
 {
-    std::cout << "Hello World!\n"; 
+	int m;
+	int n;
+	cout << "Enter m and n where m is larger than n" << endl;
+	cin >> m >> n;
+	int GCD = gcd(m, n);
+	cout << GCD << endl;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
