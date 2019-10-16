@@ -3,12 +3,50 @@
 
 #include "pch.h"
 #include <iostream>
+#include <stdlib.h>
 using namespace std;
+
+int * ReverseMultiply(int *list, int size)
+{
+	int mult = 1;
+	int *newarray;
+	newarray = new int[2 * size+1];
+	for (int i = 0; i < size; i++)
+	{
+		newarray[i] = list[i];
+		mult *= newarray[i];
+	}
+	for (int j = size; j < 2 * size; j++)
+	{
+		newarray[j] = list[(2*size-1)-j];
+		mult *= newarray[j];
+	}
+	newarray[2 * size] = mult;
+	return newarray;
+}
+
 
 int main()
 {
-    std::cout << "Hello World!\n"; 
-}
+	cout << "Enter the number of entries: " << endl;
+	int size;
+	cin >> size;
+	int *ogarray;
+	ogarray = new int[size];
+	for (int i = 0; i < size; i++)
+	{
+		cout << "Entry " << i << " is" << endl;
+		int entry;
+		cin >> entry;
+		ogarray[i] = entry;
+	}
+	int *newarray = ReverseMultiply(ogarray, size);
+	for (int i = 0; i < 2 * size + 1; i++)
+	{
+		cout << newarray[i] << endl;
+	}
+} 
+
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
