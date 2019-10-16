@@ -25,6 +25,23 @@ int * ReverseMultiply(int *list, int size)
 	return newarray;
 }
 
+int * ReverseAdd(int *list, int size)
+{
+
+	int add = 0;
+	int *newarray;
+	int newsize = 2 * size - 1;
+	newarray = new int[newsize];
+	for (int i = 0; i < size; i++)
+	{
+		newarray[i] = list[i];
+	}
+	for (int j = size; j < newsize; j++)
+	{
+		newarray[j] = list[newsize-1-j] + list[newsize-j];
+	}
+	return newarray;
+}
 
 int main()
 {
@@ -44,6 +61,12 @@ int main()
 	for (int i = 0; i < 2 * size + 1; i++)
 	{
 		cout << newarray[i] << endl;
+	}
+	cout << "new line" << endl;
+	int *newarray2 = ReverseAdd(ogarray, size);
+	for (int i = 0; i < 2 * size - 1; i++)
+	{
+		cout << newarray2[i] << endl;
 	}
 } 
 
