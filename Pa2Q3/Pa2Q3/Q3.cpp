@@ -10,18 +10,18 @@ int * ReverseMultiply(int *list, int size)
 {
 	int mult = 1;
 	int *newarray;
-	newarray = new int[2 * size+1];
-	for (int i = 0; i < size; i++)
+	newarray = new int[2 * size+1]; //make a new array with a size to hold all the values
+	for (int i = 0; i < size; i++) //first step is to put all the old array into the new one while computing a multiply sum
 	{
 		newarray[i] = list[i];
 		mult *= newarray[i];
 	}
-	for (int j = size; j < 2 * size; j++)
+	for (int j = size; j < 2 * size; j++) // reverse the order of the old array to the second half of the new while continuing to multiply sum
 	{
 		newarray[j] = list[(2*size-1)-j];
 		mult *= newarray[j];
 	}
-	newarray[2 * size] = mult;
+	newarray[2 * size] = mult; //add the multiply sum to the last index
 	return newarray;
 }
 
@@ -30,13 +30,13 @@ int * ReverseAdd(int *list, int size)
 
 	int add = 0;
 	int *newarray;
-	int newsize = 2 * size - 1;
+	int newsize = 2 * size - 1; //create a new array with the size needed
 	newarray = new int[newsize];
-	for (int i = 0; i < size; i++)
+	for (int i = 0; i < size; i++) //first get the values from the old array into the new one
 	{
 		newarray[i] = list[i];
 	}
-	for (int j = size; j < newsize; j++)
+	for (int j = size; j < newsize; j++) //then reverse add the values and put that into the index of the new array
 	{
 		newarray[j] = list[newsize-1-j] + list[newsize-j];
 	}
@@ -50,21 +50,21 @@ int main()
 	cin >> size;
 	int *ogarray;
 	ogarray = new int[size];
-	for (int i = 0; i < size; i++)
+	for (int i = 0; i < size; i++) //create user defined array
 	{
 		cout << "Entry " << i << " is" << endl;
 		int entry;
 		cin >> entry;
 		ogarray[i] = entry;
 	}
-	cout << " " << endl;
-	int *newarray = ReverseMultiply(ogarray, size);
+	cout << " " << endl; //space
+	int *newarray = ReverseMultiply(ogarray, size); //call ReverseMultiply and print new array
 	for (int i = 0; i < 2 * size + 1; i++)
 	{
 		cout << newarray[i] << endl;
 	}
-	cout << "new line" << endl;
-	int *newarray2 = ReverseAdd(ogarray, size);
+	cout << " " << endl; //space
+	int *newarray2 = ReverseAdd(ogarray, size); //call ReverseAdd and print array
 	for (int i = 0; i < 2 * size - 1; i++)
 	{
 		cout << newarray2[i] << endl;
