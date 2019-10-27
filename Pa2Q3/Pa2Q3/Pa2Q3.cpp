@@ -57,6 +57,7 @@ int main()
 		cin >> entry;
 		ogarray[i] = entry;
 	}
+	cout << " " << endl;
 	int *newarray = ReverseMultiply(ogarray, size);
 	for (int i = 0; i < 2 * size + 1; i++)
 	{
