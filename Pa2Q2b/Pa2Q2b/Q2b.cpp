@@ -9,7 +9,7 @@ double rec(double n)
 {
 	if (n > 0)
 	{
-		return (2 * n) / ((3 * n) + 2) + rec(n - 1);
+		return (2 * n) / ((3 * n) + 2) + rec(n - 1); //keeps calling the algorithim while decreasing n each time till n is o
 	}
 	else
 	{
@@ -18,11 +18,11 @@ double rec(double n)
 }
 int main()
 {
-		double n;
-		cout << "Enter n value" << endl;
-		cin >> n;
-		double recval = rec(n);
-		cout << recval << endl;
+		double n; //initalize n as a double
+		cout << "Enter n value" << endl; 
+		cin >> n; 
+		double recval = rec(n); //call function
+		cout << recval << endl; //print output of function
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
